@@ -13,13 +13,9 @@ void Planner::addVacation(Vacation newVacation) {
             }
         }
     }
-    if(!ok)
-    {
-        std::cout << "Invalid request!" << std::endl;
-    }
-    else {
-        newVacation.status = true;
-        ListofVacations.push_back(newVacation);
+    if(ok) {
+        newVacation.setStatus(true);
+        ListofVacations.emplace_back(newVacation);
     }
 
 }
@@ -33,5 +29,6 @@ std::ostream &operator<<(std::ostream &os, const Planner &planner) {
     return os;
 }
 
-
-
+const std::vector<Vacation> &Planner::getListofVacations() const {
+    return ListofVacations;
+}

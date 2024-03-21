@@ -13,11 +13,10 @@ private:
 public:
     friend class Employee;
     void addVacation(Vacation newVacation);
-    void showVacations();
-
     friend std::ostream &operator<<(std::ostream &os, const Planner &planner);
 
+    const std::vector<Vacation> &getListofVacations() const;
 
-    };
+};
 
 #endif

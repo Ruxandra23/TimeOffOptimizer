@@ -4,78 +4,66 @@
 #include "planner.h"
 using namespace std;
 int main() {
+    Planner planner;
+    int condition;
+    do {
+        std::cout << "Menu:" << std::endl;
+        //std::cout << "1.Enter your details:" << std::endl;
+        std::cout << "1.Create a vacation request:" << std::endl;
+        //std::cout << "3.Processing your request..." << std::endl;
+        std::cout << "2.Show all the upcoming vacations" << std::endl;
+        std::cout << "3.Quit menu" << std::endl;
+        std::cout << "Choose an option: ";
+        std::cin >> condition;
 
-    cout << "Hello world";
+        switch (condition) {
 
-//    int condition;
-//    do {
-//        std::cout << "Menu:" << std::endl;
-//        //std::cout << "1.Enter your details:" << std::endl;
-//        std::cout << "1.Create a vacation request:" << std::endl;
-//        //std::cout << "3.Processing your request..." << std::endl;
-//        std::cout << "2.Show all the upcoming vacations" << std::endl;
-//        std::cout << "3.Quit menu" << std::endl;
-//        std::cout << "Choose an option: ";
-//        std::cin >> condition;
-//
-//        switch (condition) {
-//
-//            case 1: {
-//                int empId;
-//                std::string department;
-//                std::cout<< "Enter your ID: ";
-//                std::cin >> empId;
-//                std::cout<< "Enter the department you belong to: ";
-//                std::cin >> department;
-//                Employee employee(empId,department);
-//                break;
-//            }
-//            case 2: {
-//                int Day,Month,Year, _day, _month, _year;
-//                std::cout << "Enter details for your vacation request: " << std::endl;
-//                std::cout << "First day of vacation:";
-//                std::cin >> Day;
-//                std::cout << "Month:";
-//                std::cin >> Month;
-//                std::cout << "Year:";
-//                std::cin >> Year;
-//                Date startDate(Day,Month,Year);
-//                std::cout << "Last day of vacation:";
-//                std::cin >> _day;
-//                std::cout << "Month:";
-//                std::cin >> _month;
-//                std::cout << "Year:";
-//                std::cin >> _year;
-//                Date endDate(_day,_month,_year);
-//                break;
-//            }
-//            case 3:{
-//
-//            }
-//
-//
-//
-//
-//
-//        }
-//
-//    }while(condition!=5);
+            case 1: {
+                int empId;
+                std::string department;
+                std::cout<< "Enter your ID: ";
+                std::cin >> empId;
+                std::cout<< "Enter the department you belong to: ";
+                std::cin >> department;
+                Employee employee(empId,department);
+                int Day,Month,Year, _day, _month, _year;
+                std::cout << "First day of vacation:";
+                std::cin >> Day;
+                std::cout << "Month:";
+                std::cin >> Month;
+                std::cout << "Year:";
+                std::cin >> Year;
+                Date startDate(Day,Month,Year);
+                std::cout << "Last day of vacation:";
+                std::cin >> _day;
+                std::cout << "Month:";
+                std::cin >> _month;
+                std::cout << "Year:";
+                std::cin >> _year;
+                Date endDate(_day,_month,_year);
+                Vacation newvacation(empId,department,startDate,endDate);
+                if(employee.requestVacation(startDate,endDate)==1)
+                   {    planner.addVacation(newvacation);
+                        std::cout << "Your request has been registered!" << std::endl;
 
+                   }
+                else  std::cout << "Insufficient days for vacation!" << std::endl;
+                break;
+            }
+            case 2:{
 
-    Vacation obj( 101,"FMI", Date(11, 03, 2024), Date(14, 03, 2024));
-    Vacation obj2(102,"FMI",Date(11,03,2024),Date(14,03,2024));
-      Planner planner;
-      planner.addVacation(obj);
-      planner.addVacation(obj2);
+                std::cout<<planner;
+                break;
+            }
+            default:
+                std::cout << "Not a valid option! Choose something else!";
+                break;
 
-      cout << obj << endl << obj2;
-//     planner.showVacations();
+        }
 
-//      Employee emp1(123,"numedepartament",30);
-//      Planner planner;
-//      planner.addVacation(emp1.requestVacation(123,"FMI", Date(11,03,2024),Date(14,03,2024)));
-//      planner.showVacations();
+    }while(condition!=3);
 
+    
 
 // trebuie sa mai fac
 //fct pt concediu medical

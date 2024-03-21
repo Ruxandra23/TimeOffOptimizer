@@ -30,9 +30,10 @@ public:
 
     friend std::ostream &operator<<(std::ostream &out, const Employee &employee);
     friend std::istream &operator>>(std::istream &in,  Employee &employee);
+    friend class Vacation;
 
-    Vacation requestVacation(const Date &startDate, const Date &endDate);
 
+    bool requestVacation(const Date &startDate, const Date &endDate);
 
     int getEmployeeId() const;
 

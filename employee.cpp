@@ -38,20 +38,13 @@ std::istream &operator>>(std::istream &in, Employee &employee) {
     return in;
 
 }
+bool Employee::requestVacation(const Date &startDate, const Date &endDate) {
+    int days_requested = Date::count_number_of_days(startDate, endDate);
+    if (days_requested <= number_of_days) return 1;
+    return 0;
 
 
-/*std::expected<Vacation,std::string> Employee::requestVacation(const Date &startDate,const Date &endDate){
-
-    int days_requested = Date::count_number_of_days(startDate,endDate);
-
-    if (days_requested <= number_of_days) {
-        return Vacation(employeeId, department, startDate, endDate, false);
-    }
-    else
-        return std::make_unexpected(std::string("Insufficient days for vacation!"));
-
-
-}*/
+}
 
 int Employee::getEmployeeId() const {
     return employeeId;

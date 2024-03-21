@@ -19,8 +19,6 @@ public:
 
     }
 
-//    ~Vacation() ;
-    Vacation() = default;
     Vacation(const Vacation &other) : Vacation( other.employeeID,other.department, other.startDate, other.endDate, other.status) {
 
     }
