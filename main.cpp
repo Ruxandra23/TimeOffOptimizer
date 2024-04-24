@@ -1,71 +1,49 @@
-#include "date.h"
+#include <iostream>
 #include "employee.h"
-#include "vacation.h"
 #include "planner.h"
-using namespace std;
+#include "leave.h"
+#include "sick_leave.h"
+#include "casual_leave.h"
+#include "maternity_leave.h"
+#include "date.h"
+
 int main() {
-    Planner planner;
-    int condition;
-    do {
-        std::cout << "Menu:" << std::endl;
-        //std::cout << "1.Enter your details:" << std::endl;
-        std::cout << "1.Create a vacation request:" << std::endl;
-        //std::cout << "3.Processing your request..." << std::endl;
-        std::cout << "2.Show all the upcoming vacations" << std::endl;
-        std::cout << "3.Quit menu" << std::endl;
-        std::cout << "Choose an option: ";
-        std::cin >> condition;
 
-        switch (condition) {
+    auto *planner = new Planner();
 
-            case 1: {
-                int empId;
-                std::string department;
-                std::cout<< "Enter your ID: ";
-                std::cin >> empId;
-                std::cout<< "Enter the department you belong to: ";
-                std::cin >> department;
-                Employee employee(empId,department);
-                int Day,Month,Year, _day, _month, _year;
-                std::cout << "First day of vacation:";
-                std::cin >> Day;
-                std::cout << "Month:";
-                std::cin >> Month;
-                std::cout << "Year:";
-                std::cin >> Year;
-                Date startDate(Day,Month,Year);
-                std::cout << "Last day of vacation:";
-                std::cin >> _day;
-                std::cout << "Month:";
-                std::cin >> _month;
-                std::cout << "Year:";
-                std::cin >> _year;
-                Date endDate(_day,_month,_year);
-                Vacation newvacation(empId,department,startDate,endDate);
-                if(employee.requestVacation(startDate,endDate)==1)
-                   {    planner.addVacation(newvacation);
-                        std::cout << "Your request has been registered!" << std::endl;
+//    // Crearea angajaților'
+////    Employee emp1(1, "John Doe", "IT", 0, 0, 0);
+////    emp1.askForLeave("sick", Date(16, 04, 2023), Date(19, 04, 2023), planner);
+////    std::cout << planner->getListofLeaves().size();
+// // casualLeave leave1(1, "John Doe", "IT", Date(16, 04, 2023), Date(19, 04, 2023), false, 0, 0);
+//// maternityLeave leave2(2, "Jane Doe", "HR", Date(16, 04, 2023), Date(19, 04, 2023), false);
+//// if(leave2.is_Approved())
+////     std::cout<<"Leave approved"<<std::endl;
+//// else
+////     std::cout<<"Leave not approved"<<std::endl;
+//// leave2.update_Leave_Days(Date::count_number_of_days(Date(16, 04, 2023), Date(19, 04, 2023)));
+//// std::cout<<leave2.getNumberOfLeaveDays()<<std::endl;
+//sickLeave leave3(3, "John Doe", "IT", Date(15, 04, 2023), Date(19, 04, 2023));
+////if(leave3.is_Approved())
+////    std::cout<<"Leave approved"<<std::endl;
+////else
+////    std::cout<<"Leave not approved"<<std::endl;
+//// leave3.update_Leave_Days(Date::count_number_of_days(Date(15, 04, 2023), Date(19, 04, 2023)));
+//// std::cout<<leave3.getNumberOfLeaveDays()<<std::endl;
+////std::cout<< leave3.request_Leave(Date(15, 06, 2023), Date(29, 06, 2023));
+//planner->addLeave(&leave3);
+//std::cout <<planner;
+//casualLeave leave4(4, "Jane Doe", "HR", Date(23, 04, 2023), Date(31, 04, 2023), false, planner);
+//std::cout << leave4.checkAvailability(Date(17, 04, 2023), Date(2112, 04, 2023));
+//    return 0;
+//Date date1(16, 04, 2023);
+//std::cout << date1;
+Employee emp1(1, "John Doe", "IT",12,21,360);
+emp1.askForLeave("maternity", Date(16, 04, 2023), Date(19, 04, 2023), planner);
+std::cout << emp1.getMaternityLeaveDays();
+//std::cout << planner->getListofLeaves().size();
+//planner->count_Leave_Types();
 
-                   }
-                else  std::cout << "Insufficient days for vacation!" << std::endl;
-                break;
-            }
-            case 2:{
 
-                std::cout<<planner;
-                break;
-            }
-            default:
-                std::cout << "Not a valid option! Choose something else!";
-                break;
-
-        }
-
-    }while(condition!=3);
-
-    
-
-// trebuie sa mai fac
-//fct pt concediu medical
-//fct pt sugestie concediu
+return 0;
 }

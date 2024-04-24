@@ -1,22 +1,25 @@
 
-#ifndef TIMEOFFOPTIMIZER_DATE_H
-#define TIMEOFFOPTIMIZER_DATE_H
+#ifndef PROIECTPOO_DATE_H
+#define PROIECTPOO_DATE_H
+
 #include <iostream>
 #include <cmath>
-class Date{
+
+class Date {
 private:
     int day;
     int month;
     int year;
 public:
 
-    Date() = delete;
-    Date(int Day=0, int Month=1, int Year=0);
 
-    ~Date();
+    Date();
+    Date(int Day, int Month, int Year);
 
     friend std::ostream &operator<<(std::ostream &os, const Date &date);
-    friend std::istream &operator>>(std::istream &in, const Date &date);
+
+    friend std::istream &operator>>(std::istream &in, Date date);
+
     static int count_number_of_days(const Date &date1, const Date &date2);
 
     bool operator==(const Date &rhs) const;
@@ -34,6 +37,8 @@ public:
     int getYear() const;
 
     void setYear(int year);
+    bool operator>=(const Date& other) const;
+    bool operator<=(const Date& other) const;
 
 
 };
