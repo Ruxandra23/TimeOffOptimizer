@@ -1,9 +1,10 @@
 
 #ifndef PROIECTPOO_CASUAL_LEAVE_H
 #define PROIECTPOO_CASUAL_LEAVE_H
-#include "leave.h"
+#include "include.h"
+#include "planner.h"
+#include "date.h"
 
-class Planner;
 class casualLeave : public Leave {
 private:
     Planner *planner;

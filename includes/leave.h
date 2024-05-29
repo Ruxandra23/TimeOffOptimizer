@@ -1,12 +1,9 @@
 
 #ifndef PROIECTPOO_LEAVE_H
 #define PROIECTPOO_LEAVE_H
-
-#include <string>
-#include <ostream>
-#include <utility>
+#include "include.h"
 #include "date.h"
-
+class Planner;
 class Leave {
 protected:
     int employee_Id;
@@ -32,6 +29,8 @@ public:
     virtual void update_Leave_Days(int days) = 0;
     virtual bool is_Approved();
     virtual bool request_Leave(const Date &startDate, const Date &endDate) = 0;
+
+    void templateMethod(const Date &startDate, const Date &endDate, Planner *planner);
 
     const Date &getStartDate() const;
 

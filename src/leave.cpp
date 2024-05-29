@@ -1,5 +1,4 @@
-#include <iostream>
-#include "leave.h"
+#include "../includes/planner.h"
 
 Leave::Leave(int Employee_Id, std::string Name, std::string Department, const Date &Start_Date, const Date &End_Date,
              bool Status,
@@ -46,7 +45,14 @@ bool Leave::request_Leave(const Date &startDate, const Date &endDate) {
     if (days_requested <= number_Of_Leave_Days) return true;
     return false;
 }
-
+void Leave::templateMethod(const Date &startDate, const Date &endDate, Planner *planner) {
+    if (this->request_Leave(startDate, endDate)) {
+        if (this->is_Approved()) {
+            this->update_Leave_Days(Date::count_number_of_days(startDate, endDate));
+            planner->addLeave(this);
+        }
+    }
+}
 const Date &Leave::getStartDate() const {
     return start_Date;
 }

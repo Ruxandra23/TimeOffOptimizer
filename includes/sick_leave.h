@@ -1,8 +1,7 @@
 #ifndef PROIECTPOO_SICK_LEAVE_H
 #define PROIECTPOO_SICK_LEAVE_H
-
+#include "include.h"
 #include "leave.h"
-
 class sickLeave : public Leave {
 private:
     int medical_Certificate_Id;

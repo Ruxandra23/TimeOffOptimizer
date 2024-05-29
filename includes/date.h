@@ -1,10 +1,7 @@
 
 #ifndef PROIECTPOO_DATE_H
 #define PROIECTPOO_DATE_H
-
-#include <iostream>
-#include <cmath>
-
+#include "include.h"
 class Date {
 private:
     int day;

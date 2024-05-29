@@ -1,4 +1,4 @@
-#include "sick_leave.h"
+#include "../includes/sick_leave.h"
 
 sickLeave::sickLeave(int Employee_Id, std::string Name, std::string Department, const Date &Start_Date,
                      const Date &End_Date, bool Status,

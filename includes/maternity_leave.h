@@ -1,8 +1,9 @@
+
 #ifndef PROIECTPOO_MATERNITY_LEAVE_H
 #define PROIECTPOO_MATERNITY_LEAVE_H
-
+#include "include.h"
 #include "leave.h"
-
+#include "date.h"
 class maternityLeave : public Leave {
 private:
     bool near_Childbirth;

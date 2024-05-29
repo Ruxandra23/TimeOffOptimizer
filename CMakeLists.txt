@@ -113,28 +113,30 @@ endfunction()
 
 # NOTE: update executable name in .github/workflows/cmake.yml:25 when changing name here
 
-include_directories(include)
+include_directories(includes)
 set(HEADERS
-    include/leave.h
-    include/date.h
-    include/sick_leave.h
-    include/maternity_leave.h
-    include/casual_leave.h
-    include/employee.h
-    include/planner.h
+    includes/leave.h
+        includes/date.h
+        includes/sick_leave.h
+        includes/maternity_leave.h
+        includes/casual_leave.h
+        includes/planner.h
+        includes/leave_factory.h
+        includes/include.h
+        includes/employee.h
 )
 
 set(SOURCES
-    src/leave.cpp
-    src/date.cpp
-    src/sick_leave.cpp
-    src/maternity_leave.cpp
-    src/casual_leave.cpp
-    src/employee.cpp
-    src/planner.cpp
+        src/leave.cpp
+        src/date.cpp
+        src/sick_leave.cpp
+        src/maternity_leave.cpp
+        src/casual_leave.cpp
+        src/planner.cpp
+        src/leave_factory.cpp
 )
 
-add_executable(${PROJECT_NAME} main.cpp ${HEADERS} ${SOURCES})
+add_executable(${PROJECT_NAME} src/main.cpp ${HEADERS} ${SOURCES})
 
 ###############################################################################
 

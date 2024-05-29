@@ -1,4 +1,5 @@
-#include "planner.h"
+#include "../includes/planner.h"
+
 void Planner::addLeave(Leave *newLeave) {
     if(newLeave->is_Approved())
         ListofLeaves.push_back(newLeave);
@@ -33,4 +34,10 @@ std::ostream &operator<<(std::ostream &os, const Planner *planner) {
 
 const std::vector<Leave *> &Planner::getListofLeaves() const {
     return ListofLeaves;
+}
+
+Planner::Planner(const std::vector<Leave *> &listofLeaves) : ListofLeaves(listofLeaves) {}
+
+Planner::Planner() {
+
 }

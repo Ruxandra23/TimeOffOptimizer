@@ -1,5 +1,4 @@
-#include "casual_leave.h"
-#include "planner.h"
+#include "../includes/casual_leave.h"
 casualLeave::casualLeave(int Employee_Id, std::string Name, std::string Department, const Date &Start_Date,
                          const Date &End_Date, bool Status, Planner *planner, int Number_Of_Leave_Days, bool IsPossible)
         : Leave(Employee_Id, Name, Department, Start_Date, End_Date, Status, Number_Of_Leave_Days),
@@ -10,6 +9,7 @@ casualLeave::casualLeave(int Employee_Id, std::string Name, std::string Departme
  }
 
  bool casualLeave::is_Approved() {
+     isPossible = checkAvailability(this->start_Date, this->end_Date);
      if(isPossible == true)
          this->status = true;
      else
