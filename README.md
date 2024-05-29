@@ -1,4 +1,4 @@
-# TimeOffOPtimizer
+# TimeOffOptimizer
 
 Acest proiect presupune crearea unei aplicații prin intermediul căreia un angajat dintr-o firmă să solicite un concediu. În cazul în care doi angaajați din același departament solicită concediu în aceeași perioadă, atunci cererea de concediu va fi refuzată. Altfel, concediul va fi planificat în planner. Va exista o funcție pentru a sugera un concediu pentru angajatul căruia i s-a refuzat cererea.
 
